@@ -5,6 +5,8 @@ source ~/.profile
 
 echo "*** Rails setup ***" 
 export WORKDIR=/app/$APPDIR
+id 
+ls -lh /app/fp_api/log/
 
 if [ ! -x $WORKDIR/bin/rails ] 
 then
@@ -35,8 +37,6 @@ then
 	$WORKDIR/bin/rails g rspec:install
 fi
 
-# do not work without it
-$WORKDIR/bin/bundle add spring --group "development, test" --skip-install 
 $WORKDIR/bin/bundle install
 $WORKDIR/bin/bundle exec spring binstub --all
 

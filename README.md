@@ -5,7 +5,7 @@ Food Plan Generator API
 
 Run:
 ```sh
-podman-compose up --build-arg USERNAME=$(id -un) --build-arg GROUPNAME=$(id -gn) --build-arg USERID=$(id -u) --build-arg GROUPID=$(id -g)
+podman-compose --pod-args '--userns keep-id' up --build-arg USERNAME=$(id -un) --build-arg GROUPNAME=$(id -gn) --build-arg USERID=$(id -u) --build-arg GROUPID=$(id -g)
 ```
 
 Get a shell inside the container:

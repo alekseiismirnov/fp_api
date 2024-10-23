@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+#
+class Seed
+  def self.begin
+    seed = Seed.new
+    seed.generate_foods
+  end
+
+  def generate_foods
+    20.times do
+      food = Food.create!(
+        name: Faker::Food.ingredient,
+        carbs: rand(100),
+        fats: rand(100),
+        proteins: rand(100)
+      )
+    end
+  end
+end
+
+Seed.begin
